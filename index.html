@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CogPower</title>
+    <meta name="description" content="CogPower">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body onload="run()" class="raindrops">
+    <script src="rainyday.js"></script>
+    <script>
+      function run() {
+        var image = document.getElementById('rain_bg'),
+            somediv = document.getElementById('rain_wrapper');
+        image.onload = function() {
+          var engine = new RainyDay({
+            image: this,
+            parentElement: somediv
+          });
+          engine.rain([ [0, 2, 200], [3, 3, 1] ], 100);
+        };
+        image.crossOrigin = 'anonymous';
+        image.src = 'rain-bg.jpg';
+      }
+    </script>
+    <img id="rain_bg" crossorigin="anonymous" src="rain-bg.jpg">
+    <div id="rain_wrapper"><canvas width="1279" height="846" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+  </body>
+</html>
